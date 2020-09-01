@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_template/state/index_state.dart';
 import 'package:flutter_template/state/page_state.dart';
 
 class MinePage extends StatefulWidget {
@@ -8,7 +9,7 @@ class MinePage extends StatefulWidget {
   }
 }
 
-class _State extends PageState<MinePage> {
+class _State extends IndexState<MinePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

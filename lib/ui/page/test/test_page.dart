@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_template/state/page_state.dart';
+import 'package:flutter_template/state/index_state.dart';
 
 class TestPage extends StatefulWidget {
   @override
@@ -8,7 +8,7 @@ class TestPage extends StatefulWidget {
   }
 }
 
-class _State extends PageState<TestPage> {
+class _State extends IndexState<TestPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

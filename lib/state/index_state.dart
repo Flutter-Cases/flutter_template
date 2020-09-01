@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../router/router.dart';
 
 ///
 /// 页面生命周期
@@ -19,10 +20,19 @@ abstract class IndexState<T extends StatefulWidget> extends State<T>
         _isMount = true;
         onMount();
         onLoad(ModalRoute.of(context).settings.arguments);
-        onResume();
       }
     });
     WidgetsBinding.instance.addObserver(this);
+    Router.indexPauseEventBus.on<IndexChangePageEvent>().listen((e) {
+      if (tag == e.page) {
+        onPause();
+      }
+    });
+    Router.indexResumeEventBus.on<IndexChangePageEvent>().listen((e) {
+      if (tag == e.page) {
+        onResume();
+      }
+    });
     super.initState();
   }
 

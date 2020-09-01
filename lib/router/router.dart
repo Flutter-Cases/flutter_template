@@ -1,12 +1,19 @@
+import 'package:event_bus/event_bus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_template/ui/page/home/home_page.dart';
 import 'package:flutter_template/ui/page/mine/mine_page.dart';
 import 'package:flutter_template/ui/page/test/test_page.dart';
 
 class Router {
+  ///主页onResume通知
+  static final EventBus indexResumeEventBus = EventBus();
+
+  ///主页onPause通知
+  static final EventBus indexPauseEventBus = EventBus();
+
   ///
   /// 路由注册
-  static Map<String, WidgetBuilder> regiter() {
+  static Map<String, WidgetBuilder> register() {
     return {
       '/home': (_) => HomePage(),
       '/test': (_) => TestPage(),
@@ -35,16 +42,37 @@ class Router {
       "backgroundColor": Color.fromARGB(255, 248, 248, 248),
       "color": Color.fromARGB(255, 29, 29, 29),
       "selectedColor": Color.fromARGB(255, 66, 148, 254),
-      "border": Border.all(color: Color.fromARGB(255, 236, 237, 241), width: 1),
+      "border": Border(
+          top: BorderSide(color: Color.fromARGB(255, 236, 237, 241), width: 1)),
       "list": [
         {
           "url": "/home",
           "widget": HomePage(),
-          "icon": "",
-          "selectedIcon": "",
+          "icon": "assets/icon/home.png",
+          "selectedIcon": "assets/icon/home-on.png",
           "text": "首页"
+        },
+        {
+          "url": "/test",
+          "widget": TestPage(),
+          "icon": "assets/icon/test.png",
+          "selectedIcon": "assets/icon/test-on.png",
+          "text": "测试"
+        },
+        {
+          "url": "/mine",
+          "widget": MinePage(),
+          "icon": "assets/icon/mine.png",
+          "selectedIcon": "assets/icon/mine-on.png",
+          "text": "我的"
         }
       ]
     };
   }
+}
+
+class IndexChangePageEvent {
+  final String page;
+
+  IndexChangePageEvent(this.page);
 }
