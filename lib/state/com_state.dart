@@ -18,7 +18,6 @@ abstract class ComState<T extends StatefulWidget> extends State<T>
       if (!_isMount) {
         _isMount = true;
         onMount();
-        onResume();
       }
     });
     WidgetsBinding.instance.addObserver(this);
@@ -40,14 +39,6 @@ abstract class ComState<T extends StatefulWidget> extends State<T>
   /// 应用处于build渲染完毕状态
   @mustCallSuper
   void onMount() {}
-
-  /// 应用处于不可见变为可见时的状态
-  @mustCallSuper
-  void onResume() {}
-
-  /// 应用处于不可见且不能响应用户的输入，但在后台继续活动中
-  @mustCallSuper
-  void onPause() {}
 
   /// 应用处于销毁状态
   @mustCallSuper

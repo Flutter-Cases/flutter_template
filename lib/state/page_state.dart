@@ -95,11 +95,11 @@ abstract class PageState<T extends StatefulWidget> extends State<T>
   @mustCallSuper
   void onCreate() {}
 
-  void onLoad(params) {}
-
   /// 应用处于build渲染完毕状态
   @mustCallSuper
   void onMount() {}
+
+  void onLoad(params) {}
 
   /// 应用处于不可见变为可见时的状态
   @mustCallSuper

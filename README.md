@@ -1,16 +1,30 @@
 # flutter_template
 
-A new Flutter project.
+## flutter版本
+Flutter 1.20.2 • channel stable • https://github.com/flutter/flutter.git
 
-## Getting Started
+## 生命周期
 
-This project is a starting point for a Flutter application.
+### PageState(页面)
 
-A few resources to get you started if this is your first Flutter project:
+* onCreate 处于创建状态，可初始化一些信息, 不可setState
+* onMount 处于可见状态，可setState
+* onLoad 处于可见状态，可获取参数params
+* onResume 处于可见状态，或从后台进入前台触发
+* onPause 处于不可见状态， 或从前台进入后台触发
+* onDestroy 销毁
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+## IndexState(主页，专门给主页使用)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+* onCreate 处于创建状态，可初始化一些信息, 不可setState
+* onMount 处于可见状态，可setState
+* onLoad 处于可见状态，可获取参数params
+* onResume 处于可见状态，或从后台进入前台触发
+* onPause 处于不可见状态， 或从前台进入后台触发
+* onDestroy 销毁
+
+## ComState(组件)
+
+* onCreate 处于创建状态，可初始化一些信息, 不可setState
+* onMount 处于可见状态，可setState
+* onDestroy 销毁
