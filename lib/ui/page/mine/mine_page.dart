@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_template/state/index_state.dart';
 import 'package:flutter_template/state/page_state.dart';
+import 'package:flutter_template/ui/widget/flutter_app_bar.dart';
 
 class MinePage extends StatefulWidget {
   @override
@@ -13,17 +14,11 @@ class _State extends IndexState<MinePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('我的')),
-      body: Container(
-        child: RaisedButton(
-          onPressed: () {
-            Navigator.popUntil(context, (route) => route.isFirst);
-          },
-          child: Text('回到首页'),
-        ),
-      ),
+      appBar: FlutterAppBar(title: Text('我的')),
+      body: Container(),
     );
   }
+
   @override
   void onResume() {
     super.onResume();

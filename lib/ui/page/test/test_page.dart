@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_template/state/index_state.dart';
+import 'package:flutter_template/ui/widget/flutter_app_bar.dart';
 
 class TestPage extends StatefulWidget {
   @override
@@ -12,15 +13,8 @@ class _State extends IndexState<TestPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('测试')),
-      body: Container(
-        child: RaisedButton(
-          onPressed: () {
-            Navigator.pushNamed(context, '/mine');
-          },
-          child: Text('跳转到我的页面'),
-        ),
-      ),
+      appBar: FlutterAppBar(title: Text('测试')),
+      body: Container(),
     );
   }
 

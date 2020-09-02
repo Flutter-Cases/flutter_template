@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_template/state/index_state.dart';
-import 'package:flutter_template/state/page_state.dart';
+import 'package:flutter_template/ui/widget/flutter_app_bar.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -13,15 +13,8 @@ class _State extends IndexState<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('首页')),
-      body: Container(
-        child: RaisedButton(
-          onPressed: () {
-            Navigator.pushNamed(context, '/test');
-          },
-          child: Text('跳转测试页面'),
-        ),
-      ),
+      appBar: FlutterAppBar(title: Text('首页')),
+      body: Container(),
     );
   }
 
@@ -42,6 +35,4 @@ class _State extends IndexState<HomePage> {
     super.onDestroy();
     print('onDestroy: HomePage');
   }
-
-
 }

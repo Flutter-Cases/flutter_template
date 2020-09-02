@@ -67,6 +67,14 @@ class _State extends PageState<Index> {
   }
 
   @override
+  void initState() {
+    super.initState();
+    Router.indexItemTappedEventBus.on<IndexChangeItemTappedEvent>().listen((e) {
+      _onItemTapped(e.index);
+    });
+  }
+
+  @override
   void onResume() {
     super.onResume();
     Router.indexResumeEventBus.fire(
